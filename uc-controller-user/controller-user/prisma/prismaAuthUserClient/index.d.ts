@@ -2917,6 +2917,7 @@ export namespace Prisma {
   }
 
   export type ContactCreateInput = {
+    id: number
     name: string
     emailId: string
     street: string
@@ -2927,7 +2928,7 @@ export namespace Prisma {
   }
 
   export type ContactUncheckedCreateInput = {
-    id?: number
+    id: number
     name: string
     emailId: string
     street: string
@@ -2938,6 +2939,7 @@ export namespace Prisma {
   }
 
   export type ContactUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     emailId?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
@@ -2959,7 +2961,7 @@ export namespace Prisma {
   }
 
   export type ContactCreateManyInput = {
-    id?: number
+    id: number
     name: string
     emailId: string
     street: string
@@ -2970,6 +2972,7 @@ export namespace Prisma {
   }
 
   export type ContactUpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     emailId?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string

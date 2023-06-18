@@ -19,12 +19,13 @@ export class ContactService {
   }
 
   async createUser(userData: createContactDto) {
+    console.log(userData);
     const data = await this.prisma.contact
       .create({ data: userData })
       .catch((err) => {
         console.log(err);
         throw new HttpException(err, 400);
-    });
+      });
     return data;
   }
 
