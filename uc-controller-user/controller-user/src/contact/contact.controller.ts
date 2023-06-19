@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ContactService } from './contact.service';
 import { createContactDto } from 'src/dto/contact.dto';
 
@@ -10,18 +10,14 @@ export class ContactController {
     return this.contactService.getUser(userData);
   }
 
-  @Post('/createUser')
-  async createUser(userData: createContactDto) {
+  @Put('/createUser')
+  async createUser(@Body() userData: createContactDto) {
     return await this.contactService.createUser(userData);
   }
 
-  @Post('/updateUser')
-  async updateUser(userData:any){
-    return await this.contactService.updateUser(userData);
-  }
 
   @Delete('/deleteUser')
-  async deleteUser(userData:any){
+  async deleteUser(@Body() userData:any){
     return await this.contactService.deleteUser(userData);
   }
 

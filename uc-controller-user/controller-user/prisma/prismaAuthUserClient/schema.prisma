@@ -8,7 +8,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgres://unicourt_user:admin@30.7.1.201:5432/uc_master"
+  url      = "postgresql://unicourt_user:admin@30.7.1.201:5432/uc_master"
 }
 
 model User {
@@ -23,14 +23,14 @@ model User {
 }
 
 model Contact {
-  id Int @id 
+  id Int @id @default(autoincrement())
   name   String
   emailId String @map("email_id")
   street   String
   city  String
   zipcode Int 
   companyName  String @map("company_name")
-  phoneNumber  BigInt @map("phone_number")
+  phoneNumber  String @map("phone_number")
 
   @@map("contact")
 }

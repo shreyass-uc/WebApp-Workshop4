@@ -37,7 +37,7 @@ export type Contact = {
   city: string
   zipcode: number
   companyName: string
-  phoneNumber: bigint
+  phoneNumber: string
 }
 
 
@@ -1753,13 +1753,11 @@ export namespace Prisma {
   export type ContactAvgAggregateOutputType = {
     id: number | null
     zipcode: number | null
-    phoneNumber: number | null
   }
 
   export type ContactSumAggregateOutputType = {
     id: number | null
     zipcode: number | null
-    phoneNumber: bigint | null
   }
 
   export type ContactMinAggregateOutputType = {
@@ -1770,7 +1768,7 @@ export namespace Prisma {
     city: string | null
     zipcode: number | null
     companyName: string | null
-    phoneNumber: bigint | null
+    phoneNumber: string | null
   }
 
   export type ContactMaxAggregateOutputType = {
@@ -1781,7 +1779,7 @@ export namespace Prisma {
     city: string | null
     zipcode: number | null
     companyName: string | null
-    phoneNumber: bigint | null
+    phoneNumber: string | null
   }
 
   export type ContactCountAggregateOutputType = {
@@ -1800,13 +1798,11 @@ export namespace Prisma {
   export type ContactAvgAggregateInputType = {
     id?: true
     zipcode?: true
-    phoneNumber?: true
   }
 
   export type ContactSumAggregateInputType = {
     id?: true
     zipcode?: true
-    phoneNumber?: true
   }
 
   export type ContactMinAggregateInputType = {
@@ -1938,7 +1934,7 @@ export namespace Prisma {
     city: string
     zipcode: number
     companyName: string
-    phoneNumber: bigint
+    phoneNumber: string
     _count: ContactCountAggregateOutputType | null
     _avg: ContactAvgAggregateOutputType | null
     _sum: ContactSumAggregateOutputType | null
@@ -2808,7 +2804,7 @@ export namespace Prisma {
     city?: StringFilter | string
     zipcode?: IntFilter | number
     companyName?: StringFilter | string
-    phoneNumber?: BigIntFilter | bigint | number
+    phoneNumber?: StringFilter | string
   }
 
   export type ContactOrderByWithRelationInput = {
@@ -2853,7 +2849,7 @@ export namespace Prisma {
     city?: StringWithAggregatesFilter | string
     zipcode?: IntWithAggregatesFilter | number
     companyName?: StringWithAggregatesFilter | string
-    phoneNumber?: BigIntWithAggregatesFilter | bigint | number
+    phoneNumber?: StringWithAggregatesFilter | string
   }
 
   export type UserCreateInput = {
@@ -2917,36 +2913,34 @@ export namespace Prisma {
   }
 
   export type ContactCreateInput = {
-    id: number
     name: string
     emailId: string
     street: string
     city: string
     zipcode: number
     companyName: string
-    phoneNumber: bigint | number
+    phoneNumber: string
   }
 
   export type ContactUncheckedCreateInput = {
-    id: number
+    id?: number
     name: string
     emailId: string
     street: string
     city: string
     zipcode: number
     companyName: string
-    phoneNumber: bigint | number
+    phoneNumber: string
   }
 
   export type ContactUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     emailId?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     zipcode?: IntFieldUpdateOperationsInput | number
     companyName?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: BigIntFieldUpdateOperationsInput | bigint | number
+    phoneNumber?: StringFieldUpdateOperationsInput | string
   }
 
   export type ContactUncheckedUpdateInput = {
@@ -2957,29 +2951,28 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     zipcode?: IntFieldUpdateOperationsInput | number
     companyName?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: BigIntFieldUpdateOperationsInput | bigint | number
+    phoneNumber?: StringFieldUpdateOperationsInput | string
   }
 
   export type ContactCreateManyInput = {
-    id: number
+    id?: number
     name: string
     emailId: string
     street: string
     city: string
     zipcode: number
     companyName: string
-    phoneNumber: bigint | number
+    phoneNumber: string
   }
 
   export type ContactUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     emailId?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     zipcode?: IntFieldUpdateOperationsInput | number
     companyName?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: BigIntFieldUpdateOperationsInput | bigint | number
+    phoneNumber?: StringFieldUpdateOperationsInput | string
   }
 
   export type ContactUncheckedUpdateManyInput = {
@@ -2990,7 +2983,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     zipcode?: IntFieldUpdateOperationsInput | number
     companyName?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: BigIntFieldUpdateOperationsInput | bigint | number
+    phoneNumber?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter = {
@@ -3113,17 +3106,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter
   }
 
-  export type BigIntFilter = {
-    equals?: bigint | number
-    in?: Enumerable<bigint> | Enumerable<number> | bigint | number
-    notIn?: Enumerable<bigint> | Enumerable<number> | bigint | number
-    lt?: bigint | number
-    lte?: bigint | number
-    gt?: bigint | number
-    gte?: bigint | number
-    not?: NestedBigIntFilter | bigint | number
-  }
-
   export type ContactCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -3138,7 +3120,6 @@ export namespace Prisma {
   export type ContactAvgOrderByAggregateInput = {
     id?: SortOrder
     zipcode?: SortOrder
-    phoneNumber?: SortOrder
   }
 
   export type ContactMaxOrderByAggregateInput = {
@@ -3166,23 +3147,6 @@ export namespace Prisma {
   export type ContactSumOrderByAggregateInput = {
     id?: SortOrder
     zipcode?: SortOrder
-    phoneNumber?: SortOrder
-  }
-
-  export type BigIntWithAggregatesFilter = {
-    equals?: bigint | number
-    in?: Enumerable<bigint> | Enumerable<number> | bigint | number
-    notIn?: Enumerable<bigint> | Enumerable<number> | bigint | number
-    lt?: bigint | number
-    lte?: bigint | number
-    gt?: bigint | number
-    gte?: bigint | number
-    not?: NestedBigIntWithAggregatesFilter | bigint | number
-    _count?: NestedIntFilter
-    _avg?: NestedFloatFilter
-    _sum?: NestedBigIntFilter
-    _min?: NestedBigIntFilter
-    _max?: NestedBigIntFilter
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3199,14 +3163,6 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
-  }
-
-  export type BigIntFieldUpdateOperationsInput = {
-    set?: bigint | number
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
   }
 
   export type NestedIntFilter = {
@@ -3301,33 +3257,6 @@ export namespace Prisma {
     _count?: NestedIntFilter
     _min?: NestedDateTimeFilter
     _max?: NestedDateTimeFilter
-  }
-
-  export type NestedBigIntFilter = {
-    equals?: bigint | number
-    in?: Enumerable<bigint> | Enumerable<number> | bigint | number
-    notIn?: Enumerable<bigint> | Enumerable<number> | bigint | number
-    lt?: bigint | number
-    lte?: bigint | number
-    gt?: bigint | number
-    gte?: bigint | number
-    not?: NestedBigIntFilter | bigint | number
-  }
-
-  export type NestedBigIntWithAggregatesFilter = {
-    equals?: bigint | number
-    in?: Enumerable<bigint> | Enumerable<number> | bigint | number
-    notIn?: Enumerable<bigint> | Enumerable<number> | bigint | number
-    lt?: bigint | number
-    lte?: bigint | number
-    gt?: bigint | number
-    gte?: bigint | number
-    not?: NestedBigIntWithAggregatesFilter | bigint | number
-    _count?: NestedIntFilter
-    _avg?: NestedFloatFilter
-    _sum?: NestedBigIntFilter
-    _min?: NestedBigIntFilter
-    _max?: NestedBigIntFilter
   }
 
 

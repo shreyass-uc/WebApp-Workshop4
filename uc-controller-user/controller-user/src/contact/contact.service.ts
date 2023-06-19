@@ -15,21 +15,30 @@ export class ContactService {
   }
 
   getUserById(id: any) {
+    id = +id;
     return this.prisma.contact.findFirst({ where: { id } });
   }
 
   async createUser(userData: createContactDto) {
-    console.log(userData);
+    userData.zipcode = Number(userData.zipcode);
     const data = await this.prisma.contact
       .create({ data: userData })
+      .catch((err) => {
+        throw new HttpException(err, 400);
+      });
+    return data;
+  }
+
+  async deleteUser(userData: any) {
+    console.log(userData);
+    const data = await this.prisma.contact
+      .delete({
+        where: { id: userData.id },
+      })
       .catch((err) => {
         console.log(err);
         throw new HttpException(err, 400);
       });
     return data;
   }
-
-  deleteUser(userData: any) {}
-
-  updateUser(userData: any) {}
 }
